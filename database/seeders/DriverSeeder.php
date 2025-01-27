@@ -13,20 +13,22 @@ class DriverSeeder extends Seeder
    */
   public function run(): void
   {
-    // TODO paginate and save all drivers
-    // limit 30 ?limit=100 max
-    // total 861
+    $limit = 100; // seems to be the current API limit
+    $offset = 0;
+    $total = 1; // arbitrary init value
 
-    $response = Http::get('https://ergast.com/api/f1/drivers.json');
-    if ($response->ok()) {
-      $data = json_decode($response->body(), true);
-      // $data['MRData']['total'];
-      $drivers = $data['MRData']['DriverTable']['Drivers'];
-      foreach ($drivers as $driver) {
-        var_dump($driver);
-        Driver::firstOrCreate($driver);
+    while ($offset <= $total) {
+      $response = Http::get("https://ergast.com/api/f1/drivers.json?limit=$limit&offset=$offset");
+      if ($response->ok()) {
+        $data = json_decode($response->body(), true);
+        $total = $data['MRData']['total'];
+        $drivers = $data['MRData']['DriverTable']['Drivers'];
+        // considered doing a single collected call, but with such a small data size it seems unnecessary
+        Driver::firstOrCreate($drivers);
+        $offset += $limit;
+      } else {
+        // throw new \Exception()
       }
-
     }
   }
 }
