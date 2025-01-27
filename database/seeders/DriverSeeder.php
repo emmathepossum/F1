@@ -13,9 +13,7 @@ class DriverSeeder extends Seeder
    */
   public function run(): void
   {
-    // get drivers via api
-    // save into db
-    // 
+    // TODO paginate and save all drivers
     // limit 30 ?limit=100 max
     // total 861
 

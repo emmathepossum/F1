@@ -13,3 +13,9 @@
     </div>
   </div>
 </div>
+
+<style>
+  .card:hover {
+    transform:scale(1.05);
+  }
+</style>
