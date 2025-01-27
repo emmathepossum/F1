@@ -1,0 +1,20 @@
+<x-layout>
+  <div class="flex flex-row gap-6 justify-content-between">
+    <x-card>
+      <x-slot:title>title</x-slot:title>
+      <x-slot:content>content</x-slot:content>
+    </x-card>
+    <x-card>
+      <x-slot:title>title</x-slot:title>
+      <x-slot:content>content</x-slot:content>
+    </x-card>
+    <x-card>
+      <x-slot:title>title</x-slot:title>
+      <x-slot:content>content</x-slot:content>
+    </x-card>
+    <x-card>
+      <x-slot:title>title</x-slot:title>
+      <x-slot:content>content</x-slot:content>
+    </x-card>
+  </div>
+  </x-layout>
