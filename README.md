@@ -2,7 +2,9 @@
 
 Reads F1 API and displays all Drivers with some information
 
-TODO:
+API Documentation: https://documenter.getpostman.com/view/11586746/SztEa7bL
+
+### TODO:
 - pagination
 - filter
 - admin panel to edit data https://voyager.devdojo.com/
