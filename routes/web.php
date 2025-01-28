@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Driver;
+use App\Http\Controllers\DriverController;
 
 
-Route::get('/', function () {
-  return view('f1', ['drivers' => Driver::all()]);
-});
+Route::get('/', [DriverController::class, 'all']);
