@@ -5,7 +5,7 @@ docker run --rm \
     laravelsail/php84-composer:latest \
     bash -c "composer install"
 
-./vendor/bin/sail up -d
+./vendor/bin/sail up --build -d
 
 ./vendor/bin/sail artisan migrate:fresh --seed
 
