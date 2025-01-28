@@ -19,15 +19,15 @@ class DriverSeeder extends Seeder
 
     while ($offset <= $total) {
       $response = Http::get("https://ergast.com/api/f1/drivers.json?limit=$limit&offset=$offset");
-      if ($response->ok()) {
-        $data = json_decode($response->body(), true);
+      if ($response->successful()) {
+        $data = $response->json();
         $total = $data['MRData']['total'];
         $drivers = $data['MRData']['DriverTable']['Drivers'];
         // considered doing a single collected call, but with such a small data size it seems unnecessary
-        Driver::firstOrCreate($drivers);
+        foreach ($drivers as $driver) {
+          Driver::create($driver);
+        }
         $offset += $limit;
-      } else {
-        // throw new \Exception()
       }
     }
   }
