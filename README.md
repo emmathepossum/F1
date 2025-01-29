@@ -9,11 +9,7 @@ API Documentation: https://documenter.getpostman.com/view/11586746/SztEa7bL
 
 ### Setup
 
-Start: `sail up -d` then available on http://localhost
-
-Fresh DB: `sail artisan migrate:fresh --seed`
-
-Install Admin Panel: `sail artisan voyager:install --with-dummy`
+Run: `./start.sh`
 
 Login into http://localhost/admin with: 
 > email: admin@admin.com  
