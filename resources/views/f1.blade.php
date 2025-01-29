@@ -1,5 +1,8 @@
 <x-layout>
   <x-slot:title>F1 Library</x-slot:title>
+
+  <x-nationality-filter :nationalities="$nationalities"></x-nationality-filter>
+
   <div class="grid grid-cols-4 gap-6">
     @foreach ($drivers as $driver)
       <x-card>
