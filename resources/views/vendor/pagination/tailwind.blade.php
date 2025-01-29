@@ -26,7 +26,7 @@
       @endif
     </div>
 
-    <div class="flex flex-col items-center gap-2">
+    <div class="hidden sm:flex flex-col sm:items-center gap-2">
       <div>
         <p class="text-sm text-gray-700 leading-5 dark:text-gray-400">
           {!! __('Showing') !!}
