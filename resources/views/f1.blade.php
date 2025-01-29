@@ -1,7 +1,7 @@
 <x-layout>
   <x-slot:title>F1 Library</x-slot:title>
 
-  <x-nationality-filter :nationalities="$nationalities"></x-nationality-filter>
+  <livewire:nationality-filter :nationalities="$nationalities"></livewire:nationality-filter>
 
   <div class="grid grid-cols-4 gap-6">
     @foreach ($drivers as $driver)
