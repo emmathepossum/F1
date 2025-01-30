@@ -17,6 +17,5 @@ Login into http://localhost/admin with:
 
 
 ### TODO:
-- filter
 - tests
 - add images
