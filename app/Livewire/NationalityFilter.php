@@ -29,7 +29,12 @@ class NationalityFilter extends Component
       $nationalities[] = $a['nationality'];
     }
 
-    return array_unique($nationalities);
+    $nationalities = array_unique($nationalities);
+
+    sort($nationalities);
+
+    return $nationalities;
+
   }
 
 }
