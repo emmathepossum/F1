@@ -1,29 +1,29 @@
 <div>
   <div class="grid grid-cols-4 gap-6">
     @foreach ($drivers as $driver)
-    <x-card>
-      <x-slot:title>{{ $driver->givenName }} {{ $driver->familyName }}</x-slot:title>
-      <x-slot:content>
-        <div>
+      <x-card>
+        <x-slot:title>{{ $driver->givenName }} {{ $driver->familyName }}</x-slot:title>
+        <x-slot:content>
           <div>
-            <a class="link" href="{{ $driver->url }}">Wikipedia</a>
+            <div>
+              <a class="link" href="{{ $driver->url }}">Wikipedia</a>
+            </div>
+            <div>Born: {{ date('d.m.Y', strtotime($driver->dateOfBirth)) }}</div>
+            <div>Nationality: {{ $driver->nationality }}</div>
+            @if ($driver->permanentNumber)
+              <div>Permanent Number: {{ $driver->permanentNumber }}</div>
+            @endif
+            @if ($driver->code)
+              <div>Code: {{ $driver->code }}</div>
+            @endif
           </div>
-          <div>Born: {{ date('d.m.Y', strtotime($driver->dateOfBirth)) }}</div>
-          <div>Nationality: {{ $driver->nationality }}</div>
-          @isset($driver->permanentNumber)
-          <div>Permanent Number: {{ $driver->permanentNumber }}</div>
-          @endif
-          @isset($driver->code)
-          <div>Code: {{ $driver->code }}</div>
-          @endif
-        </div>
-      </x-slot:content>
-    </x-card>
+        </x-slot:content>
+      </x-card>
     @endforeach
   </div>
 
-  <div>
-    {{ $drivers->links('pagination/tailwind') }}
+  <div class="pagination mt-6">
+    {{ $drivers->links() }}
   </div>
 
   <style>
@@ -49,6 +49,16 @@
 
     .link:hover {
       text-decoration: underline;
+    }
+
+    .pagination .sm\:flex {
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .pagination .inline-flex {
+      --tw-bg-opacity: 1;
+      background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
     }
   </style>
 </div>

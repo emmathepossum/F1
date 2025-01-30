@@ -9,13 +9,16 @@ class NationalityFilter extends Component
 {
   public $selectedNationality;
 
-  public function mount()
-  {
-  }
-
   public function render()
   {
     return view('livewire.nationality-filter', ['nationalities' => $this->getNationalities()]);
+  }
+
+  public function updated($property)
+  {
+    if ($property === 'selectedNationality') {
+      $this->dispatch('nationality-changed', nationality: $this->selectedNationality);
+    }
   }
 
   protected function getNationalities(): array
@@ -28,4 +31,5 @@ class NationalityFilter extends Component
 
     return array_unique($nationalities);
   }
+
 }
